@@ -1,0 +1,1 @@
+{{ generate_qtm_union_model('ap_account') }}

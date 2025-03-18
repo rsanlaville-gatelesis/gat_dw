@@ -1,0 +1,33 @@
+name: 'gat_dw'
+version: '1.0.0'
+
+profile: 'gat_dw'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+models:
+  gat_dw:
+    qtm_union:
+      +materialized: view
+    staging:
+      +materialized: table
+
+vars:
+  cla_database: "cla_prod"
+  qtm_cla_prefix: "quantum_prod_"
+  qtm_schemas: ["qctl","gatcrgqctl","gatcrgse","gatrs"]
+  dia_schema: "dia"
+  sf_schema: "salesforce_prod" 

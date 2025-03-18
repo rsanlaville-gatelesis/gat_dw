@@ -1,0 +1,37 @@
+version: 2
+
+models:
+
+  - name: stg_fmv_raw
+    tags: ["daily"]
+    description: "all price points in the past 6 years. Refreshed daily."
+    config:
+      materialized: table
+      grants: 
+        select: ["BI_DATA_SCIENCE","BI_DEVELOPER"]
+
+  - name: stg_fmv_pn
+    tags: ["daily"]
+    description: "FMV at the P/N level. Refreshed Daily."
+    config:
+      materialized: table
+      grants: 
+        select: ["BI_DATA_SCIENCE","BI_DEVELOPER"]
+    columns:
+      - name: pnm_auto_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_fmv_pn_cond
+    tags: ["daily"]
+    description: "FMV at the P/N & Condition level. Refreshed Daily."
+    config:
+      materialized: table
+      grants: 
+        select: ["BI_DATA_SCIENCE","BI_DEVELOPER"]
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+            - pnm_auto_key
+            - pcc_auto_key

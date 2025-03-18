@@ -1,0 +1,1 @@
+{{ generate_qtm_union_model('wip_audit_log') }}

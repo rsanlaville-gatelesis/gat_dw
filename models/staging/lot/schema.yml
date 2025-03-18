@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_lot_stm
+    tags: ["hourly"]
+    description: "Get list of all LOT stock lines."
+    config:
+      materialized: table
+      grants:
+        select: ["BI_DATA_SCIENCE","BI_DEVELOPER"]
+    columns:
+    - name: stm_auto_key
+      tests:
+        - not_null
+        - unique

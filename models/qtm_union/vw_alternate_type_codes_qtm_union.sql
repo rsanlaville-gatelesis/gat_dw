@@ -1,0 +1,1 @@
+{{ generate_qtm_union_model('alternate_type_codes') }}

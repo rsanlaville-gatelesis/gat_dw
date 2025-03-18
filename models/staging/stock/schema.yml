@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_stock_cost_estimates
+    tags: ["hourly"]
+    description: "Show estimated cost at the stock line level. Combines Lot, Consignment process, future repair cost estimates."
+    config:
+      materialized: table
+      grants:
+        select: ["BI_DATA_SCIENCE","BI_DEVELOPER"]
+

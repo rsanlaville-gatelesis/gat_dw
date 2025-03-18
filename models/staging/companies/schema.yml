@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_cmp_vq_score
+    description: "QCTL ONLY. shows a VQ score for each company. The higher the score, the more expensive this company is compare to others. Using price on same P/N as reference points."
+    tags: ["weekly"]
+    config:
+      materialization: table
+    columns:
+      - name: cmp_auto_key
+        tests:
+          - unique
+          - not_null

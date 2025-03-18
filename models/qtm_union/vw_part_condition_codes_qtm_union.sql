@@ -1,0 +1,1 @@
+{{ generate_qtm_union_model('part_condition_codes') }}

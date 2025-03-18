@@ -1,0 +1,1406 @@
+version: 2
+sources:
+- name: qctl
+  database: cla_prod
+  schema: quantum_prod_qctl
+  loaded_at_field: _fivetran_synced
+  freshness:
+    warn_after:
+      count: 24
+      period: hour
+  tables:
+  - name: access_log
+    identifier: access_log
+  - name: agents
+    identifier: agents
+  - name: alternates_parts_master
+    identifier: alternates_parts_master
+  - name: alternate_type_codes
+    identifier: alternate_type_codes
+  - name: application_codes
+    identifier: application_codes
+  - name: approval_codes
+    identifier: approval_codes
+  - name: ap_account
+    identifier: ap_account
+  - name: ap_detail
+    identifier: ap_detail
+  - name: ar_account
+    identifier: ar_account
+  - name: ar_detail
+    identifier: ar_detail
+  - name: billing_groups
+    identifier: billing_groups
+  - name: buy_plan_codes
+    identifier: buy_plan_codes
+  - name: ck_detail
+    identifier: ck_detail
+  - name: class_codes
+    identifier: class_codes
+  - name: company_agents
+    identifier: company_agents
+  - name: company_consignment
+    identifier: company_consignment
+  - name: company_part_capability
+    identifier: company_part_capability
+  - name: cr_header
+    identifier: cr_header
+  - name: delivery_terms
+    identifier: delivery_terms
+  - name: exchange
+    identifier: exchange
+  - name: purchase_wo
+    identifier: purchase_wo
+  - name: rolodex
+    identifier: rolodex
+  - name: ship_via_codes
+    identifier: ship_via_codes
+  - name: buy_detail
+    identifier: buy_detail
+  - name: consignment_codes
+    identifier: consignment_codes
+  - name: delivery_codes
+    identifier: delivery_codes
+  - name: manual_status
+    identifier: manual_status
+  - name: rc_detail
+    identifier: rc_detail
+  - name: timelife
+    identifier: timelife
+  - name: vq_detail
+    identifier: vq_detail
+  - name: company_sites
+    identifier: company_sites
+  - name: country_codes
+    identifier: country_codes
+  - name: cq_source
+    identifier: cq_source
+  - name: cq_status
+    identifier: cq_status
+  - name: markup_codes
+    identifier: markup_codes
+  - name: project_header
+    identifier: project_header
+  - name: rc_audit_log
+    identifier: rc_audit_log
+  - name: sm_status
+    identifier: sm_status
+  - name: warning_types
+    identifier: warning_types
+  - name: wo_work_type
+    identifier: wo_work_type
+  - name: cert_source
+    identifier: cert_source
+  - name: part_condition_codes
+    identifier: part_condition_codes
+  - name: company_rolodex
+    identifier: company_rolodex
+  - name: department
+    identifier: department
+  - name: list_master
+    identifier: list_master
+  - name: wo_action
+    identifier: wo_action
+  - name: wo_quote_status
+    identifier: wo_quote_status
+  - name: wo_status_history
+    identifier: wo_status_history
+  - name: gl_period
+    identifier: gl_period
+  - name: pn_uom
+    identifier: pn_uom
+  - name: purchase_sales
+    identifier: purchase_sales
+  - name: ro_status_history
+    identifier: ro_status_history
+  - name: project_status
+    identifier: project_status
+  - name: user_defined_attributes
+    identifier: user_defined_attributes
+  - name: vq_header
+    identifier: vq_header
+  - name: qt_category_codes
+    identifier: qt_category_codes
+  - name: wo_task_labor
+    identifier: wo_task_labor
+  - name: so_detail
+    identifier: so_detail
+  - name: warehouse_locations
+    identifier: warehouse_locations
+  - name: project_priority
+    identifier: project_priority
+  - name: wo_bom_status
+    identifier: wo_bom_status
+  - name: capability_codes
+    identifier: capability_codes
+  - name: ck_header
+    identifier: ck_header
+  - name: cq_status_change
+    identifier: cq_status_change
+  - name: geo_codes
+    identifier: geo_codes
+  - name: salesperson
+    identifier: salesperson
+  - name: manuals
+    identifier: manuals
+  - name: sm_package_detail
+    identifier: sm_package_detail
+  - name: cr_detail
+    identifier: cr_detail
+  - name: gl_batch
+    identifier: gl_batch
+  - name: po_detail
+    identifier: po_detail
+  - name: po_status
+    identifier: po_status
+  - name: rma_reason
+    identifier: rma_reason
+  - name: invc_header
+    identifier: invc_header
+  - name: wo_task_instructions
+    identifier: wo_task_instructions
+  - name: sm_detail
+    identifier: sm_detail
+  - name: cq_header
+    identifier: cq_header
+  - name: gl_distribution
+    identifier: gl_distribution
+  - name: ils_flag_codes
+    identifier: ils_flag_codes
+  - name: pn_groups
+    identifier: pn_groups
+  - name: companies
+    identifier: companies
+  - name: company_list
+    identifier: company_list
+  - name: billing_group_master
+    identifier: billing_group_master
+  - name: gl_account
+    identifier: gl_account
+  - name: gl_segment
+    identifier: gl_segment
+  - name: image_codes
+    identifier: image_codes
+  - name: manual_tools
+    identifier: manual_tools
+  - name: pn_type_codes
+    identifier: pn_type_codes
+  - name: project_detail
+    identifier: project_detail
+  - name: rma_log
+    identifier: rma_log
+  - name: rma_status
+    identifier: rma_status
+  - name: ro_header
+    identifier: ro_header
+  - name: gl_trans
+    identifier: gl_trans
+  - name: manual_parts
+    identifier: manual_parts
+  - name: part_application_codes
+    identifier: part_application_codes
+  - name: pr_status_history
+    identifier: pr_status_history
+  - name: ship_method
+    identifier: ship_method
+  - name: so_category_codes
+    identifier: so_category_codes
+  - name: stock_reservations
+    identifier: stock_reservations
+  - name: uom_codes
+    identifier: uom_codes
+  - name: wo_task_type
+    identifier: wo_task_type
+  - name: lot_charge
+    identifier: lot_charge
+  - name: pr_detail
+    identifier: pr_detail
+  - name: rc_header
+    identifier: rc_header
+  - name: rc_status
+    identifier: rc_status
+  - name: sm_hold_reason
+    identifier: sm_hold_reason
+  - name: stock_adjust
+    identifier: stock_adjust
+  - name: uda_checked
+    identifier: uda_checked
+  - name: wo_quote_header
+    identifier: wo_quote_header
+  - name: wo_skills
+    identifier: wo_skills
+  - name: ro_piece_parts
+    identifier: ro_piece_parts
+  - name: warehouse_level
+    identifier: warehouse_level
+  - name: wo_task
+    identifier: wo_task
+  - name: wo_task_master
+    identifier: wo_task_master
+  - name: parts_catalog
+    identifier: parts_catalog
+  - name: cq_detail
+    identifier: cq_detail
+  - name: position_ref
+    identifier: position_ref
+  - name: repair_wo
+    identifier: repair_wo
+  - name: ro_status
+    identifier: ro_status
+  - name: vq_line
+    identifier: vq_line
+  - name: wo_bom
+    identifier: wo_bom
+  - name: location
+    identifier: location
+  - name: lot_transfers
+    identifier: lot_transfers
+  - name: ro_detail
+    identifier: ro_detail
+  - name: rr_detail
+    identifier: rr_detail
+  - name: sm_status_change
+    identifier: sm_status_change
+  - name: so_status
+    identifier: so_status
+  - name: wo_manual
+    identifier: wo_manual
+  - name: wo_task_status
+    identifier: wo_task_status
+  - name: stock
+    identifier: stock
+  - name: manufacturer
+    identifier: manufacturer
+  - name: manual_type
+    identifier: manual_type
+  - name: project_master
+    identifier: project_master
+  - name: discount_codes
+    identifier: discount_codes
+  - name: kit_components
+    identifier: kit_components
+  - name: division
+    identifier: division
+  - name: parts_master
+    identifier: parts_master
+  - name: project_types
+    identifier: project_types
+  - name: ro_category_codes
+    identifier: ro_category_codes
+  - name: company_merge_trail
+    identifier: company_merge_trail
+  - name: po_header
+    identifier: po_header
+  - name: rma_status_history
+    identifier: rma_status_history
+  - name: rr_header
+    identifier: rr_header
+  - name: so_header
+    identifier: so_header
+  - name: stock_category_codes
+    identifier: stock_category_codes
+  - name: wo_stm_complete
+    identifier: wo_stm_complete
+  - name: wo_bom_status_type
+    identifier: wo_bom_status_type
+  - name: call_list
+    identifier: call_list
+  - name: ship_via_accounts
+    identifier: ship_via_accounts
+  - name: image_list
+    identifier: image_list
+  - name: project_action
+    identifier: project_action
+  - name: pr_header
+    identifier: pr_header
+  - name: sys_users
+    identifier: sys_users
+  - name: uda_value_list
+    identifier: uda_value_list
+  - name: wip_audit_log
+    identifier: wip_audit_log
+  - name: wo_quote_detail
+    identifier: wo_quote_detail
+  - name: invc_detail
+    identifier: invc_detail
+  - name: rc_disp_codes
+    identifier: rc_disp_codes
+  - name: warehouse
+    identifier: warehouse
+  - name: wo_operation
+    identifier: wo_operation
+  - name: term_codes
+    identifier: term_codes
+  - name: wo_status
+    identifier: wo_status
+  - name: so_status_history
+    identifier: so_status_history
+  - name: wo_task_skills
+    identifier: wo_task_skills
+  - name: stock_ti
+    identifier: stock_ti
+  - name: po_status_history
+    identifier: po_status_history
+  - name: tax_table
+    identifier: tax_table
+  - name: wo_work_center
+    identifier: wo_work_center
+  - name: class_flags
+    identifier: class_flags
+  - name: sm_header
+    identifier: sm_header
+  - name: po_category_codes
+    identifier: po_category_codes
+- name: gatcrgqctl
+  database: cla_prod
+  schema: quantum_prod_gatcrgqctl
+  loaded_at_field: _fivetran_synced
+  freshness:
+    warn_after:
+      count: 24
+      period: hour
+  tables:
+  - name: access_log
+    identifier: access_log
+  - name: agents
+    identifier: agents
+  - name: alternates_parts_master
+    identifier: alternates_parts_master
+  - name: alternate_type_codes
+    identifier: alternate_type_codes
+  - name: application_codes
+    identifier: application_codes
+  - name: approval_codes
+    identifier: approval_codes
+  - name: ap_account
+    identifier: ap_account
+  - name: ap_detail
+    identifier: ap_detail
+  - name: ar_account
+    identifier: ar_account
+  - name: ar_detail
+    identifier: ar_detail
+  - name: billing_groups
+    identifier: billing_groups
+  - name: buy_plan_codes
+    identifier: buy_plan_codes
+  - name: ck_detail
+    identifier: ck_detail
+  - name: class_codes
+    identifier: class_codes
+  - name: company_agents
+    identifier: company_agents
+  - name: company_consignment
+    identifier: company_consignment
+  - name: company_part_capability
+    identifier: company_part_capability
+  - name: cr_header
+    identifier: cr_header
+  - name: delivery_terms
+    identifier: delivery_terms
+  - name: exchange
+    identifier: exchange
+  - name: purchase_wo
+    identifier: purchase_wo
+  - name: rolodex
+    identifier: rolodex
+  - name: ship_via_codes
+    identifier: ship_via_codes
+  - name: buy_detail
+    identifier: buy_detail
+  - name: consignment_codes
+    identifier: consignment_codes
+  - name: delivery_codes
+    identifier: delivery_codes
+  - name: manual_status
+    identifier: manual_status
+  - name: rc_detail
+    identifier: rc_detail
+  - name: timelife
+    identifier: timelife
+  - name: vq_detail
+    identifier: vq_detail
+  - name: company_sites
+    identifier: company_sites
+  - name: country_codes
+    identifier: country_codes
+  - name: cq_source
+    identifier: cq_source
+  - name: cq_status
+    identifier: cq_status
+  - name: markup_codes
+    identifier: markup_codes
+  - name: project_header
+    identifier: project_header
+  - name: rc_audit_log
+    identifier: rc_audit_log
+  - name: sm_status
+    identifier: sm_status
+  - name: warning_types
+    identifier: warning_types
+  - name: wo_work_type
+    identifier: wo_work_type
+  - name: cert_source
+    identifier: cert_source
+  - name: part_condition_codes
+    identifier: part_condition_codes
+  - name: company_rolodex
+    identifier: company_rolodex
+  - name: department
+    identifier: department
+  - name: list_master
+    identifier: list_master
+  - name: wo_action
+    identifier: wo_action
+  - name: wo_quote_status
+    identifier: wo_quote_status
+  - name: wo_status_history
+    identifier: wo_status_history
+  - name: gl_period
+    identifier: gl_period
+  - name: pn_uom
+    identifier: pn_uom
+  - name: purchase_sales
+    identifier: purchase_sales
+  - name: ro_status_history
+    identifier: ro_status_history
+  - name: project_status
+    identifier: project_status
+  - name: user_defined_attributes
+    identifier: user_defined_attributes
+  - name: vq_header
+    identifier: vq_header
+  - name: qt_category_codes
+    identifier: qt_category_codes
+  - name: wo_task_labor
+    identifier: wo_task_labor
+  - name: so_detail
+    identifier: so_detail
+  - name: warehouse_locations
+    identifier: warehouse_locations
+  - name: project_priority
+    identifier: project_priority
+  - name: wo_bom_status
+    identifier: wo_bom_status
+  - name: capability_codes
+    identifier: capability_codes
+  - name: ck_header
+    identifier: ck_header
+  - name: cq_status_change
+    identifier: cq_status_change
+  - name: geo_codes
+    identifier: geo_codes
+  - name: salesperson
+    identifier: salesperson
+  - name: manuals
+    identifier: manuals
+  - name: sm_package_detail
+    identifier: sm_package_detail
+  - name: cr_detail
+    identifier: cr_detail
+  - name: gl_batch
+    identifier: gl_batch
+  - name: po_detail
+    identifier: po_detail
+  - name: po_status
+    identifier: po_status
+  - name: rma_reason
+    identifier: rma_reason
+  - name: invc_header
+    identifier: invc_header
+  - name: wo_task_instructions
+    identifier: wo_task_instructions
+  - name: sm_detail
+    identifier: sm_detail
+  - name: cq_header
+    identifier: cq_header
+  - name: gl_distribution
+    identifier: gl_distribution
+  - name: ils_flag_codes
+    identifier: ils_flag_codes
+  - name: pn_groups
+    identifier: pn_groups
+  - name: companies
+    identifier: companies
+  - name: company_list
+    identifier: company_list
+  - name: billing_group_master
+    identifier: billing_group_master
+  - name: gl_account
+    identifier: gl_account
+  - name: gl_segment
+    identifier: gl_segment
+  - name: image_codes
+    identifier: image_codes
+  - name: manual_tools
+    identifier: manual_tools
+  - name: pn_type_codes
+    identifier: pn_type_codes
+  - name: project_detail
+    identifier: project_detail
+  - name: rma_log
+    identifier: rma_log
+  - name: rma_status
+    identifier: rma_status
+  - name: ro_header
+    identifier: ro_header
+  - name: gl_trans
+    identifier: gl_trans
+  - name: manual_parts
+    identifier: manual_parts
+  - name: part_application_codes
+    identifier: part_application_codes
+  - name: pr_status_history
+    identifier: pr_status_history
+  - name: ship_method
+    identifier: ship_method
+  - name: so_category_codes
+    identifier: so_category_codes
+  - name: stock_reservations
+    identifier: stock_reservations
+  - name: uom_codes
+    identifier: uom_codes
+  - name: wo_task_type
+    identifier: wo_task_type
+  - name: lot_charge
+    identifier: lot_charge
+  - name: pr_detail
+    identifier: pr_detail
+  - name: rc_header
+    identifier: rc_header
+  - name: rc_status
+    identifier: rc_status
+  - name: sm_hold_reason
+    identifier: sm_hold_reason
+  - name: stock_adjust
+    identifier: stock_adjust
+  - name: uda_checked
+    identifier: uda_checked
+  - name: wo_quote_header
+    identifier: wo_quote_header
+  - name: wo_skills
+    identifier: wo_skills
+  - name: ro_piece_parts
+    identifier: ro_piece_parts
+  - name: warehouse_level
+    identifier: warehouse_level
+  - name: wo_task
+    identifier: wo_task
+  - name: wo_task_master
+    identifier: wo_task_master
+  - name: parts_catalog
+    identifier: parts_catalog
+  - name: cq_detail
+    identifier: cq_detail
+  - name: position_ref
+    identifier: position_ref
+  - name: repair_wo
+    identifier: repair_wo
+  - name: ro_status
+    identifier: ro_status
+  - name: vq_line
+    identifier: vq_line
+  - name: wo_bom
+    identifier: wo_bom
+  - name: location
+    identifier: location
+  - name: lot_transfers
+    identifier: lot_transfers
+  - name: ro_detail
+    identifier: ro_detail
+  - name: rr_detail
+    identifier: rr_detail
+  - name: sm_status_change
+    identifier: sm_status_change
+  - name: so_status
+    identifier: so_status
+  - name: wo_manual
+    identifier: wo_manual
+  - name: wo_task_status
+    identifier: wo_task_status
+  - name: stock
+    identifier: stock
+  - name: manufacturer
+    identifier: manufacturer
+  - name: manual_type
+    identifier: manual_type
+  - name: project_master
+    identifier: project_master
+  - name: discount_codes
+    identifier: discount_codes
+  - name: kit_components
+    identifier: kit_components
+  - name: division
+    identifier: division
+  - name: parts_master
+    identifier: parts_master
+  - name: project_types
+    identifier: project_types
+  - name: ro_category_codes
+    identifier: ro_category_codes
+  - name: company_merge_trail
+    identifier: company_merge_trail
+  - name: po_header
+    identifier: po_header
+  - name: rma_status_history
+    identifier: rma_status_history
+  - name: rr_header
+    identifier: rr_header
+  - name: so_header
+    identifier: so_header
+  - name: stock_category_codes
+    identifier: stock_category_codes
+  - name: wo_stm_complete
+    identifier: wo_stm_complete
+  - name: wo_bom_status_type
+    identifier: wo_bom_status_type
+  - name: call_list
+    identifier: call_list
+  - name: ship_via_accounts
+    identifier: ship_via_accounts
+  - name: image_list
+    identifier: image_list
+  - name: project_action
+    identifier: project_action
+  - name: pr_header
+    identifier: pr_header
+  - name: sys_users
+    identifier: sys_users
+  - name: uda_value_list
+    identifier: uda_value_list
+  - name: wip_audit_log
+    identifier: wip_audit_log
+  - name: wo_quote_detail
+    identifier: wo_quote_detail
+  - name: invc_detail
+    identifier: invc_detail
+  - name: rc_disp_codes
+    identifier: rc_disp_codes
+  - name: warehouse
+    identifier: warehouse
+  - name: wo_operation
+    identifier: wo_operation
+  - name: term_codes
+    identifier: term_codes
+  - name: wo_status
+    identifier: wo_status
+  - name: so_status_history
+    identifier: so_status_history
+  - name: wo_task_skills
+    identifier: wo_task_skills
+  - name: stock_ti
+    identifier: stock_ti
+  - name: po_status_history
+    identifier: po_status_history
+  - name: tax_table
+    identifier: tax_table
+  - name: wo_work_center
+    identifier: wo_work_center
+  - name: class_flags
+    identifier: class_flags
+  - name: sm_header
+    identifier: sm_header
+  - name: po_category_codes
+    identifier: po_category_codes
+- name: gatcrgse
+  database: cla_prod
+  schema: quantum_prod_gatcrgse
+  loaded_at_field: _fivetran_synced
+  freshness:
+    warn_after:
+      count: 24
+      period: hour
+  tables:
+  - name: access_log
+    identifier: access_log
+  - name: agents
+    identifier: agents
+  - name: alternates_parts_master
+    identifier: alternates_parts_master
+  - name: alternate_type_codes
+    identifier: alternate_type_codes
+  - name: application_codes
+    identifier: application_codes
+  - name: approval_codes
+    identifier: approval_codes
+  - name: ap_account
+    identifier: ap_account
+  - name: ap_detail
+    identifier: ap_detail
+  - name: ar_account
+    identifier: ar_account
+  - name: ar_detail
+    identifier: ar_detail
+  - name: billing_groups
+    identifier: billing_groups
+  - name: buy_plan_codes
+    identifier: buy_plan_codes
+  - name: ck_detail
+    identifier: ck_detail
+  - name: class_codes
+    identifier: class_codes
+  - name: company_agents
+    identifier: company_agents
+  - name: company_consignment
+    identifier: company_consignment
+  - name: company_part_capability
+    identifier: company_part_capability
+  - name: cr_header
+    identifier: cr_header
+  - name: delivery_terms
+    identifier: delivery_terms
+  - name: exchange
+    identifier: exchange
+  - name: purchase_wo
+    identifier: purchase_wo
+  - name: rolodex
+    identifier: rolodex
+  - name: ship_via_codes
+    identifier: ship_via_codes
+  - name: buy_detail
+    identifier: buy_detail
+  - name: consignment_codes
+    identifier: consignment_codes
+  - name: delivery_codes
+    identifier: delivery_codes
+  - name: manual_status
+    identifier: manual_status
+  - name: rc_detail
+    identifier: rc_detail
+  - name: timelife
+    identifier: timelife
+  - name: vq_detail
+    identifier: vq_detail
+  - name: company_sites
+    identifier: company_sites
+  - name: country_codes
+    identifier: country_codes
+  - name: cq_source
+    identifier: cq_source
+  - name: cq_status
+    identifier: cq_status
+  - name: markup_codes
+    identifier: markup_codes
+  - name: project_header
+    identifier: project_header
+  - name: rc_audit_log
+    identifier: rc_audit_log
+  - name: sm_status
+    identifier: sm_status
+  - name: warning_types
+    identifier: warning_types
+  - name: wo_work_type
+    identifier: wo_work_type
+  - name: cert_source
+    identifier: cert_source
+  - name: part_condition_codes
+    identifier: part_condition_codes
+  - name: company_rolodex
+    identifier: company_rolodex
+  - name: department
+    identifier: department
+  - name: list_master
+    identifier: list_master
+  - name: wo_action
+    identifier: wo_action
+  - name: wo_quote_status
+    identifier: wo_quote_status
+  - name: wo_status_history
+    identifier: wo_status_history
+  - name: gl_period
+    identifier: gl_period
+  - name: pn_uom
+    identifier: pn_uom
+  - name: purchase_sales
+    identifier: purchase_sales
+  - name: ro_status_history
+    identifier: ro_status_history
+  - name: project_status
+    identifier: project_status
+  - name: user_defined_attributes
+    identifier: user_defined_attributes
+  - name: vq_header
+    identifier: vq_header
+  - name: qt_category_codes
+    identifier: qt_category_codes
+  - name: wo_task_labor
+    identifier: wo_task_labor
+  - name: so_detail
+    identifier: so_detail
+  - name: warehouse_locations
+    identifier: warehouse_locations
+  - name: project_priority
+    identifier: project_priority
+  - name: wo_bom_status
+    identifier: wo_bom_status
+  - name: capability_codes
+    identifier: capability_codes
+  - name: ck_header
+    identifier: ck_header
+  - name: cq_status_change
+    identifier: cq_status_change
+  - name: geo_codes
+    identifier: geo_codes
+  - name: salesperson
+    identifier: salesperson
+  - name: manuals
+    identifier: manuals
+  - name: sm_package_detail
+    identifier: sm_package_detail
+  - name: cr_detail
+    identifier: cr_detail
+  - name: gl_batch
+    identifier: gl_batch
+  - name: po_detail
+    identifier: po_detail
+  - name: po_status
+    identifier: po_status
+  - name: rma_reason
+    identifier: rma_reason
+  - name: invc_header
+    identifier: invc_header
+  - name: wo_task_instructions
+    identifier: wo_task_instructions
+  - name: sm_detail
+    identifier: sm_detail
+  - name: cq_header
+    identifier: cq_header
+  - name: gl_distribution
+    identifier: gl_distribution
+  - name: ils_flag_codes
+    identifier: ils_flag_codes
+  - name: pn_groups
+    identifier: pn_groups
+  - name: companies
+    identifier: companies
+  - name: company_list
+    identifier: company_list
+  - name: billing_group_master
+    identifier: billing_group_master
+  - name: gl_account
+    identifier: gl_account
+  - name: gl_segment
+    identifier: gl_segment
+  - name: image_codes
+    identifier: image_codes
+  - name: manual_tools
+    identifier: manual_tools
+  - name: pn_type_codes
+    identifier: pn_type_codes
+  - name: project_detail
+    identifier: project_detail
+  - name: rma_log
+    identifier: rma_log
+  - name: rma_status
+    identifier: rma_status
+  - name: ro_header
+    identifier: ro_header
+  - name: gl_trans
+    identifier: gl_trans
+  - name: manual_parts
+    identifier: manual_parts
+  - name: part_application_codes
+    identifier: part_application_codes
+  - name: pr_status_history
+    identifier: pr_status_history
+  - name: ship_method
+    identifier: ship_method
+  - name: so_category_codes
+    identifier: so_category_codes
+  - name: stock_reservations
+    identifier: stock_reservations
+  - name: uom_codes
+    identifier: uom_codes
+  - name: wo_task_type
+    identifier: wo_task_type
+  - name: lot_charge
+    identifier: lot_charge
+  - name: pr_detail
+    identifier: pr_detail
+  - name: rc_header
+    identifier: rc_header
+  - name: rc_status
+    identifier: rc_status
+  - name: sm_hold_reason
+    identifier: sm_hold_reason
+  - name: stock_adjust
+    identifier: stock_adjust
+  - name: uda_checked
+    identifier: uda_checked
+  - name: wo_quote_header
+    identifier: wo_quote_header
+  - name: wo_skills
+    identifier: wo_skills
+  - name: ro_piece_parts
+    identifier: ro_piece_parts
+  - name: warehouse_level
+    identifier: warehouse_level
+  - name: wo_task
+    identifier: wo_task
+  - name: wo_task_master
+    identifier: wo_task_master
+  - name: parts_catalog
+    identifier: parts_catalog
+  - name: cq_detail
+    identifier: cq_detail
+  - name: position_ref
+    identifier: position_ref
+  - name: repair_wo
+    identifier: repair_wo
+  - name: ro_status
+    identifier: ro_status
+  - name: vq_line
+    identifier: vq_line
+  - name: wo_bom
+    identifier: wo_bom
+  - name: location
+    identifier: location
+  - name: lot_transfers
+    identifier: lot_transfers
+  - name: ro_detail
+    identifier: ro_detail
+  - name: rr_detail
+    identifier: rr_detail
+  - name: sm_status_change
+    identifier: sm_status_change
+  - name: so_status
+    identifier: so_status
+  - name: wo_manual
+    identifier: wo_manual
+  - name: wo_task_status
+    identifier: wo_task_status
+  - name: stock
+    identifier: stock
+  - name: manufacturer
+    identifier: manufacturer
+  - name: manual_type
+    identifier: manual_type
+  - name: project_master
+    identifier: project_master
+  - name: discount_codes
+    identifier: discount_codes
+  - name: kit_components
+    identifier: kit_components
+  - name: division
+    identifier: division
+  - name: parts_master
+    identifier: parts_master
+  - name: project_types
+    identifier: project_types
+  - name: ro_category_codes
+    identifier: ro_category_codes
+  - name: company_merge_trail
+    identifier: company_merge_trail
+  - name: po_header
+    identifier: po_header
+  - name: rma_status_history
+    identifier: rma_status_history
+  - name: rr_header
+    identifier: rr_header
+  - name: so_header
+    identifier: so_header
+  - name: stock_category_codes
+    identifier: stock_category_codes
+  - name: wo_stm_complete
+    identifier: wo_stm_complete
+  - name: wo_bom_status_type
+    identifier: wo_bom_status_type
+  - name: call_list
+    identifier: call_list
+  - name: ship_via_accounts
+    identifier: ship_via_accounts
+  - name: image_list
+    identifier: image_list
+  - name: project_action
+    identifier: project_action
+  - name: pr_header
+    identifier: pr_header
+  - name: sys_users
+    identifier: sys_users
+  - name: uda_value_list
+    identifier: uda_value_list
+  - name: wip_audit_log
+    identifier: wip_audit_log
+  - name: wo_quote_detail
+    identifier: wo_quote_detail
+  - name: invc_detail
+    identifier: invc_detail
+  - name: rc_disp_codes
+    identifier: rc_disp_codes
+  - name: warehouse
+    identifier: warehouse
+  - name: wo_operation
+    identifier: wo_operation
+  - name: term_codes
+    identifier: term_codes
+  - name: wo_status
+    identifier: wo_status
+  - name: so_status_history
+    identifier: so_status_history
+  - name: wo_task_skills
+    identifier: wo_task_skills
+  - name: stock_ti
+    identifier: stock_ti
+  - name: po_status_history
+    identifier: po_status_history
+  - name: tax_table
+    identifier: tax_table
+  - name: wo_work_center
+    identifier: wo_work_center
+  - name: class_flags
+    identifier: class_flags
+  - name: sm_header
+    identifier: sm_header
+  - name: po_category_codes
+    identifier: po_category_codes
+- name: gatrs
+  database: cla_prod
+  schema: quantum_prod_gatrs
+  loaded_at_field: _fivetran_synced
+  freshness:
+    warn_after:
+      count: 24
+      period: hour
+  tables:
+  - name: access_log
+    identifier: access_log
+  - name: agents
+    identifier: agents
+  - name: alternates_parts_master
+    identifier: alternates_parts_master
+  - name: alternate_type_codes
+    identifier: alternate_type_codes
+  - name: application_codes
+    identifier: application_codes
+  - name: approval_codes
+    identifier: approval_codes
+  - name: ap_account
+    identifier: ap_account
+  - name: ap_detail
+    identifier: ap_detail
+  - name: ar_account
+    identifier: ar_account
+  - name: ar_detail
+    identifier: ar_detail
+  - name: billing_groups
+    identifier: billing_groups
+  - name: buy_plan_codes
+    identifier: buy_plan_codes
+  - name: ck_detail
+    identifier: ck_detail
+  - name: class_codes
+    identifier: class_codes
+  - name: company_agents
+    identifier: company_agents
+  - name: company_consignment
+    identifier: company_consignment
+  - name: company_part_capability
+    identifier: company_part_capability
+  - name: cr_header
+    identifier: cr_header
+  - name: delivery_terms
+    identifier: delivery_terms
+  - name: exchange
+    identifier: exchange
+  - name: purchase_wo
+    identifier: purchase_wo
+  - name: rolodex
+    identifier: rolodex
+  - name: ship_via_codes
+    identifier: ship_via_codes
+  - name: buy_detail
+    identifier: buy_detail
+  - name: consignment_codes
+    identifier: consignment_codes
+  - name: delivery_codes
+    identifier: delivery_codes
+  - name: manual_status
+    identifier: manual_status
+  - name: rc_detail
+    identifier: rc_detail
+  - name: timelife
+    identifier: timelife
+  - name: vq_detail
+    identifier: vq_detail
+  - name: company_sites
+    identifier: company_sites
+  - name: country_codes
+    identifier: country_codes
+  - name: cq_source
+    identifier: cq_source
+  - name: cq_status
+    identifier: cq_status
+  - name: markup_codes
+    identifier: markup_codes
+  - name: project_header
+    identifier: project_header
+  - name: rc_audit_log
+    identifier: rc_audit_log
+  - name: sm_status
+    identifier: sm_status
+  - name: warning_types
+    identifier: warning_types
+  - name: wo_work_type
+    identifier: wo_work_type
+  - name: cert_source
+    identifier: cert_source
+  - name: part_condition_codes
+    identifier: part_condition_codes
+  - name: company_rolodex
+    identifier: company_rolodex
+  - name: department
+    identifier: department
+  - name: list_master
+    identifier: list_master
+  - name: wo_action
+    identifier: wo_action
+  - name: wo_quote_status
+    identifier: wo_quote_status
+  - name: wo_status_history
+    identifier: wo_status_history
+  - name: gl_period
+    identifier: gl_period
+  - name: pn_uom
+    identifier: pn_uom
+  - name: purchase_sales
+    identifier: purchase_sales
+  - name: ro_status_history
+    identifier: ro_status_history
+  - name: project_status
+    identifier: project_status
+  - name: user_defined_attributes
+    identifier: user_defined_attributes
+  - name: vq_header
+    identifier: vq_header
+  - name: qt_category_codes
+    identifier: qt_category_codes
+  - name: wo_task_labor
+    identifier: wo_task_labor
+  - name: so_detail
+    identifier: so_detail
+  - name: warehouse_locations
+    identifier: warehouse_locations
+  - name: project_priority
+    identifier: project_priority
+  - name: wo_bom_status
+    identifier: wo_bom_status
+  - name: capability_codes
+    identifier: capability_codes
+  - name: ck_header
+    identifier: ck_header
+  - name: cq_status_change
+    identifier: cq_status_change
+  - name: geo_codes
+    identifier: geo_codes
+  - name: salesperson
+    identifier: salesperson
+  - name: manuals
+    identifier: manuals
+  - name: sm_package_detail
+    identifier: sm_package_detail
+  - name: cr_detail
+    identifier: cr_detail
+  - name: gl_batch
+    identifier: gl_batch
+  - name: po_detail
+    identifier: po_detail
+  - name: po_status
+    identifier: po_status
+  - name: rma_reason
+    identifier: rma_reason
+  - name: invc_header
+    identifier: invc_header
+  - name: wo_task_instructions
+    identifier: wo_task_instructions
+  - name: sm_detail
+    identifier: sm_detail
+  - name: cq_header
+    identifier: cq_header
+  - name: gl_distribution
+    identifier: gl_distribution
+  - name: ils_flag_codes
+    identifier: ils_flag_codes
+  - name: pn_groups
+    identifier: pn_groups
+  - name: companies
+    identifier: companies
+  - name: company_list
+    identifier: company_list
+  - name: billing_group_master
+    identifier: billing_group_master
+  - name: gl_account
+    identifier: gl_account
+  - name: gl_segment
+    identifier: gl_segment
+  - name: image_codes
+    identifier: image_codes
+  - name: manual_tools
+    identifier: manual_tools
+  - name: pn_type_codes
+    identifier: pn_type_codes
+  - name: project_detail
+    identifier: project_detail
+  - name: rma_log
+    identifier: rma_log
+  - name: rma_status
+    identifier: rma_status
+  - name: ro_header
+    identifier: ro_header
+  - name: gl_trans
+    identifier: gl_trans
+  - name: manual_parts
+    identifier: manual_parts
+  - name: part_application_codes
+    identifier: part_application_codes
+  - name: pr_status_history
+    identifier: pr_status_history
+  - name: ship_method
+    identifier: ship_method
+  - name: so_category_codes
+    identifier: so_category_codes
+  - name: stock_reservations
+    identifier: stock_reservations
+  - name: uom_codes
+    identifier: uom_codes
+  - name: wo_task_type
+    identifier: wo_task_type
+  - name: lot_charge
+    identifier: lot_charge
+  - name: pr_detail
+    identifier: pr_detail
+  - name: rc_header
+    identifier: rc_header
+  - name: rc_status
+    identifier: rc_status
+  - name: sm_hold_reason
+    identifier: sm_hold_reason
+  - name: stock_adjust
+    identifier: stock_adjust
+  - name: uda_checked
+    identifier: uda_checked
+  - name: wo_quote_header
+    identifier: wo_quote_header
+  - name: wo_skills
+    identifier: wo_skills
+  - name: ro_piece_parts
+    identifier: ro_piece_parts
+  - name: warehouse_level
+    identifier: warehouse_level
+  - name: wo_task
+    identifier: wo_task
+  - name: wo_task_master
+    identifier: wo_task_master
+  - name: parts_catalog
+    identifier: parts_catalog
+  - name: cq_detail
+    identifier: cq_detail
+  - name: position_ref
+    identifier: position_ref
+  - name: repair_wo
+    identifier: repair_wo
+  - name: ro_status
+    identifier: ro_status
+  - name: vq_line
+    identifier: vq_line
+  - name: wo_bom
+    identifier: wo_bom
+  - name: location
+    identifier: location
+  - name: lot_transfers
+    identifier: lot_transfers
+  - name: ro_detail
+    identifier: ro_detail
+  - name: rr_detail
+    identifier: rr_detail
+  - name: sm_status_change
+    identifier: sm_status_change
+  - name: so_status
+    identifier: so_status
+  - name: wo_manual
+    identifier: wo_manual
+  - name: wo_task_status
+    identifier: wo_task_status
+  - name: stock
+    identifier: stock
+  - name: manufacturer
+    identifier: manufacturer
+  - name: manual_type
+    identifier: manual_type
+  - name: project_master
+    identifier: project_master
+  - name: discount_codes
+    identifier: discount_codes
+  - name: kit_components
+    identifier: kit_components
+  - name: division
+    identifier: division
+  - name: parts_master
+    identifier: parts_master
+  - name: project_types
+    identifier: project_types
+  - name: ro_category_codes
+    identifier: ro_category_codes
+  - name: company_merge_trail
+    identifier: company_merge_trail
+  - name: po_header
+    identifier: po_header
+  - name: rma_status_history
+    identifier: rma_status_history
+  - name: rr_header
+    identifier: rr_header
+  - name: so_header
+    identifier: so_header
+  - name: stock_category_codes
+    identifier: stock_category_codes
+  - name: wo_stm_complete
+    identifier: wo_stm_complete
+  - name: wo_bom_status_type
+    identifier: wo_bom_status_type
+  - name: call_list
+    identifier: call_list
+  - name: ship_via_accounts
+    identifier: ship_via_accounts
+  - name: image_list
+    identifier: image_list
+  - name: project_action
+    identifier: project_action
+  - name: pr_header
+    identifier: pr_header
+  - name: sys_users
+    identifier: sys_users
+  - name: uda_value_list
+    identifier: uda_value_list
+  - name: wip_audit_log
+    identifier: wip_audit_log
+  - name: wo_quote_detail
+    identifier: wo_quote_detail
+  - name: invc_detail
+    identifier: invc_detail
+  - name: rc_disp_codes
+    identifier: rc_disp_codes
+  - name: warehouse
+    identifier: warehouse
+  - name: wo_operation
+    identifier: wo_operation
+  - name: term_codes
+    identifier: term_codes
+  - name: wo_status
+    identifier: wo_status
+  - name: so_status_history
+    identifier: so_status_history
+  - name: wo_task_skills
+    identifier: wo_task_skills
+  - name: stock_ti
+    identifier: stock_ti
+  - name: po_status_history
+    identifier: po_status_history
+  - name: tax_table
+    identifier: tax_table
+  - name: wo_work_center
+    identifier: wo_work_center
+  - name: class_flags
+    identifier: class_flags
+  - name: sm_header
+    identifier: sm_header
+  - name: po_category_codes
+    identifier: po_category_codes
