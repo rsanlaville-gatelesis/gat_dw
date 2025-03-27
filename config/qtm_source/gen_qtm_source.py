@@ -1,56 +1,65 @@
-import snowflake.connector
 import yaml
+import json
+import csv
 
-# Snowflake connection parameters
-conn_params = {
-    'user': 'REMYSANLAVILLE',
-    'password': 'GATelesis001!',
-    'account': 'qr93446.east-us-2.azure',
-    'warehouse': 'COMPUTE_WH',
-    'database': 'cla_prod'
-}
+# maybe delete source files that already exist before running this!
 
-QTM_PREFIX = 'quantum_prod_'
-
-def get_tables():
-    """Get list of tables from Snowflake"""
-    conn = snowflake.connector.connect(**conn_params)
-    cursor = conn.cursor()
+def get_qtm_params():
+    with open('config/qtm_source/qtm_params.json', 'r') as f:
+        qtm_params = json.load(f)
+    return qtm_params
     
-    try:
-        query = """
-        select distinct lower(table_name) table_name
-        from cla_prod.information_schema.tables
-        where table_schema = 'QUANTUM_PROD_QCTL' 
-        and table_type = 'BASE TABLE'
-        and table_name not like '%FIVETRAN%'
-        """
-        cursor.execute(query)
-        tables = [row[0] for row in cursor.fetchall()]
-        return tables
-    finally:
-        cursor.close()
-        conn.close()
+def get_tables():
+    """Read table names from the CSV file and return them as a list"""
+    tables = []
+    csv_file_path = 'config/qtm_source/qtm_tables_all.csv'
+    
+    with open(csv_file_path, mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        next(csv_reader)  # Skip the header row
+        for row in csv_reader:
+            if row:  # Ensure the row is not empty
+                tables.append(row[0])  # Assuming table names are in the first column
+    
+    return tables
+
+
+def get_schemas():
+    """Read schema names from the CSV file and return them as a list"""
+    schemas = []
+    csv_file_path = 'config/qtm_source/qtm_schemas.csv'
+    
+    with open(csv_file_path, mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        next(csv_reader)  # Skip the header row
+        for row in csv_reader:
+            if row:  # Ensure the row is not empty
+                schemas.append(row[0])  # Assuming schema names are in the first column
+    
+    return schemas
+
 
 def generate_sources():
     """Generate the sources.yml content"""
     tables = get_tables()
-    schemas = ['qctl', 'gatcrgqctl', 'gatcrgse', 'gatrs']
-    
+    qtm_params = get_qtm_params()
+    qtm_prefix = qtm_params['QTM_PREFIX']
+    schemas = get_schemas()
+
     sources_config = {
         'version': 2,
         'sources': [
             {
                 'name': schema,
                 'database': 'cla_prod',
-                'schema': QTM_PREFIX + schema,
-                'loaded_at_field': '_fivetran_synced',  # Added comma
-                'freshness': {                          # Fixed indentation
+                'schema': qtm_prefix + schema,
+                'loaded_at_field': '_fivetran_synced',  
+                'freshness': {                          
                     'warn_after': {
                         'count': 24,
                         'period': 'hour'
                     }
-                },                                      # Added comma
+                },                                      
                 'tables': [
                     {
                         'name': table,
@@ -65,7 +74,7 @@ def generate_sources():
     
     return sources_config
 
-def write_sources_file(output_path='sources.yml'):
+def write_sources_file(output_path='models/qtm_union/sources.yml'):
     """Write the sources configuration to a YAML file"""
     sources_config = generate_sources()
     
